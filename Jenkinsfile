@@ -1,20 +1,23 @@
-/* groovylint-disable-next-line CompileStatic */
+#!/usr/bin/env groovy
+// shebang tells most editors to treat as groovy (syntax highlights, formatting, etc)
+
 pipeline {
     agent any
     triggers { pollSCM('* * * * *') }
     stages {
-        //implicit checkout stage
+        // implicit checkout stage
 
         stage('Build') {
             steps {
-                powershell './mvnw clean package'
+                sh './mvnw clean package'
             }
         }
     }
+    // post after stages, for entire pipeline, is also an implicit step albeit with explicit config here, unlike implicit checkout stage
     post {
         always {
-            junit '/target/surefire-reports/*.xml'
-            archivedArtifacts 'target/*.jar'
+            junit '**/target/surefire-reports/TEST-*.xml'
+            archiveArtifacts 'target/*.jar'
         }
     }
 }
