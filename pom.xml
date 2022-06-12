@@ -11,8 +11,8 @@
 	<groupId>com.globomatics</groupId>
 	<artifactId>bike</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bike</name>
-	<description>Demo project for Spring Boot</description>
+	<name>ReleaseTracker</name>
+	<description>releasetracker</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
