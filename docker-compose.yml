@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    image: release-fcd
+    ports:
+      - 8081:8080
